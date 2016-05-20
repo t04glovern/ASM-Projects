@@ -1,23 +1,9 @@
 .global _start
 
 _start:
-	MOV R7, #3
-	MOV R0, #0
-	MOV R2, #10
-	LDR R1, =message
-	SWI 0
-
-_write:
-	MOV R7, #4
-	MOV R0, #1
-	MOV R2, #5
-	LDR R1, =message
-	SWI 0
-	
-end:
+	MOV R1, #0x14
+	MOV R2, #0xA
+	MOV R3, #0X5
+	MLA R0, R1, R2, R3
 	MOV R7, #1
 	SWI 0
-
-.data
-message:
-	.ascii " "
